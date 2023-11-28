@@ -1,7 +1,19 @@
 sample_name	unit_name	fq1	fq2	sra	adapters	strandedness
-A	lane1	A.1.fq.gz	A.2.fq.gz		
-A	lane2	A2.1.fq.gz	A2.2.fq.gz		
-B	lane1	B.1.fq.gz	B.2.fq.gz		
-C	lane1	C.1.fq.gz	C.2.fq.gz		
-D	lane1	D.1.fq.gz	D.2.fq.gz		
-E	lane1	E.1.fq.gz	E.2.fq.gz		
+parent_rep1	lane_1	data/2612__parent_-_replicate_1_library-read-1.fastq.gz	data/2612__parent_-_replicate_1_library-read-3.fastq.gz			yes
+E1_rep1	lane_1	data/2612__E1_-_replicate_1_library-read-1.fastq.gz	data/2612__E1_-_replicate_1_library-read-3.fastq.gz			yes
+E2_rep1	lane_1	data/2612__E2_-_replicate_1_library-read-1.fastq.gz	data/2612__E2_-_replicate_1_library-read-3.fastq.gz			yes
+A_rep1	lane_1	data/2612__A_-_replicate_1_library-read-1.fastq.gz	data/2612__A_-_replicate_1_library-read-3.fastq.gz			yes
+M_rep1	lane_1	data/2612__M_-_replicate_1_library-read-1.fastq.gz	data/2612__M_-_replicate_1_library-read-3.fastq.gz			yes
+YFPM_rep1	lane_1	data/2612__YFP_M_-_replicate_1_library-read-1.fastq.gz	data/2612__YFP_M_-_replicate_1_library-read-3.fastq.gz			yes
+parent_rep2	lane_1	data/2612__parent_-_replicate_2_library-read-1.fastq.gz	data/2612__parent_-_replicate_2_library-read-3.fastq.gz			yes
+E1_rep2	lane_1	data/2612__E1_-_replicate_2_library-read-1.fastq.gz	data/2612__E1_-_replicate_2_library-read-3.fastq.gz			yes
+E2_rep2	lane_1	data/2612__E2_-_replicate_2_library-read-1.fastq.gz	data/2612__E2_-_replicate_2_library-read-3.fastq.gz			yes
+A_rep2	lane_1	data/2612__A_-_replicate_2_library-read-1.fastq.gz	data/2612__A_-_replicate_2_library-read-3.fastq.gz			yes
+M_rep2	lane_1	data/2612__M_-_replicate_2_library-read-1.fastq.gz	data/2612__M_-_replicate_2_library-read-3.fastq.gz			yes
+YFPM_rep2	lane_1	data/2612__YFP_M_-_replicate_2_library-read-1.fastq.gz	data/2612__YFP_M_-_replicate_2_library-read-3.fastq.gz			yes
+parent_rep3	lane_1	data/2612__parent_-_replicate_3_library-read-1.fastq.gz	data/2612__parent_-_replicate_3_library-read-3.fastq.gz			yes
+E1_rep3	lane_1	data/2612__E1_-_replicate_3_library-read-1.fastq.gz	data/2612__E1_-_replicate_3_library-read-3.fastq.gz			yes
+E2_rep3	lane_1	data/2612__E2_-_replicate_3_library-read-1.fastq.gz	data/2612__E2_-_replicate_3_library-read-3.fastq.gz			yes
+A_rep3	lane_1	data/2612__A_-_replicate_3_library-read-1.fastq.gz	data/2612__A_-_replicate_3_library-read-3.fastq.gz			yes
+M_rep3	lane_1	data/2612__M_-_replicate_3_library-read-1.fastq.gz	data/2612__M_-_replicate_3_library-read-3.fastq.gz			yes
+YFPM_rep3	lane_1	data/2612__YFP_M_-_replicate_3_library-read-1.fastq.gz	data/2612__YFP_M_-_replicate_3_library-read-3.fastq.gz			yes

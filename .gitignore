@@ -1,0 +1,9 @@
+# Input fastq data
+/data/
+
+# Workflow output
+/resources/
+/results/
+/logs/
+report.zip
+/.snakemake/
