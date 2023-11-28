@@ -1,0 +1,95 @@
+---
+title: "Visualize subset of genes"
+author: "Lance Parsons"
+date: last-modified
+format:
+  html:
+    toc: true
+    code-fold: true
+    df-print: paged
+    embed-resources: true
+    fig-format: svg
+editor: source
+---
+
+# Load libraries    
+    
+This project uses `renv` to keep track of installed packages. Install `renv` if not installed and load dependencies with `renv::restore()`.    
+    
+``` r    
+install.packages("renv")    
+renv::restore()    
+```
+
+```{r}
+# Packages used to format code
+library(lintr)
+library(styler)
+
+# Pakcages required for the analysis
+library(DESeq2)
+library(pheatmap)
+library(RColorBrewer)
+```
+
+# Load data
+
+The results folder contains the output of the workflow we previously ran. Here, 
+we load the count data that was already compiled into a DESeq2 object by the
+RNA-Seq workflow.
+
+```{r}
+all <- readRDS("../results/deseq2/all.rds")
+all
+```
+
+ We also load the list of the genes of interest.
+ 
+```{r}
+selected_genes <- read.csv("gProfiler_mmusculus_11-13-2023_2-19-11 AM.csv")
+selected_genes
+```
+
+The workflow is based on genes defined by Ensembl identifiers, which is the
+`converted_alias` column in the supplied gene list. 
+
+_NOTE:_ Some of the rows in the selected gene list do not have an Ensembl ID
+defined, and thus, will be ignored in the later analysis.
+
+```{r}
+selected <- rownames(all) %in% selected_genes$converted_alias
+```
+
+# Visualization
+
+## Variance stabilization transform
+
+We use the [variance stabilization transform
+(`vst`)](https://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#variance-stabilizing-transformation)
+to prepare the data for visualizations such as PCA.
+```{r}
+vsd <- vst(all, blind = FALSE)
+```
+
+## PCA using all genes
+```{r}
+plotPCA(vsd)
+```
+
+
+## PCA using selected genes
+```{r}
+selected_vsd <- vsd[selected, ]
+plotPCA(selected_vsd)
+```
+## Heatmap of selected genes
+
+```{r, fig.height=30, fig.width=10}
+select <- order(rowMeans(counts(all, normalized = TRUE)),
+                decreasing = TRUE)[selected]
+df <- as.data.frame(colData(all)["condition"])
+rownames(df) <- colnames(vsd)
+colors <- colorRampPalette(brewer.pal(9, "Blues"))(255)
+pheatmap(assay(vsd)[select, ], cluster_rows = FALSE, show_rownames = TRUE,
+         cluster_cols = TRUE, annotation_col = df, col = colors)
+```
